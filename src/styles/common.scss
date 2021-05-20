@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+:root {
+  --textColor: #b1aeae;
+  --backGroundColor: #161616;
+  --textLight: #fffefe;
+  --black: #000000;
+  --h1: 2rem;
+  --h2: 1.5rem;
+  --h3: 1.3rem;
+  --h4: 0.7rem;
+  --genre: 0.9rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  margin-top: 12vh;
+  background-color: var(--backGroundColor);
+  font-family: "Poppins", sans-serif;
+  padding: 0 7rem;
+}
+
+input,
+input:focus {
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+}

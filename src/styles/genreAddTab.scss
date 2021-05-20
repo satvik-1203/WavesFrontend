@@ -1,0 +1,31 @@
+.genreAddTab {
+  background-color: var(--black);
+  display: block;
+
+  width: 20vw;
+  margin-top: 1rem;
+  padding: 1rem 0rem;
+  border-radius: 0.5rem;
+
+  input {
+    display: block;
+    margin: 1rem auto;
+    width: 70%;
+    height: 2rem;
+  }
+  button {
+    width: 30%;
+    height: 1.8rem;
+    margin: 0 auto;
+    display: block;
+    border: 2px solid #24d997;
+    background-color: transparent;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.4s linear;
+  }
+  button:hover {
+    background-color: #24d997;
+  }
+}

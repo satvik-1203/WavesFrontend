@@ -1,0 +1,23 @@
+.genreTab {
+  position: absolute;
+  transform: translate(-80%, 30%);
+  cursor: default;
+}
+
+.genreGrid {
+  padding: 1rem;
+  display: grid;
+  gap: 2rem;
+  grid-auto-flow: row dense;
+  align-items: stretch;
+  justify-content: start;
+  grid-auto-rows: max-content;
+  grid-template-columns: repeat(4, max-content);
+  background-color: var(--black);
+  border-radius: 0.2rem;
+  box-shadow: 0 0 10px 0px rgb(32, 32, 32);
+}
+
+.genreName {
+  font-size: var(--genre);
+}

@@ -1,0 +1,40 @@
+nav {
+  background-color: var(--black);
+  height: 11vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem;
+  #logo {
+    color: var(--textLight);
+    font-size: var(--h1);
+    cursor: pointer;
+    font-family: "Lobster", cursive;
+  }
+  .details {
+    color: var(--textColor);
+    ul {
+      display: flex;
+    }
+    ul > li {
+      color: var(--textColor);
+      list-style: none;
+      padding: 1rem;
+      font-size: var(--h3);
+
+      div {
+        cursor: pointer;
+      }
+      a {
+        color: var(--textColor);
+        text-decoration: none;
+      }
+    }
+  }
+}
