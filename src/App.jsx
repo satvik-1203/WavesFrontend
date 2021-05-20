@@ -15,7 +15,7 @@ function App() {
     <>
       <Nav></Nav>
       <Switch>
-        <Route path="/SignUp">
+        <Route path="/signup">
           <SignUpPage />
         </Route>
       </Switch>
