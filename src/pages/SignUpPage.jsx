@@ -23,7 +23,7 @@ const SignUpPage = () => {
       .post(customerApi(), postCustomer)
       .then(() => {
         setUniqueEmail(true);
-        history.push("/");
+        history.push("/login");
       })
       .catch(setUniqueEmail(false));
   };
@@ -106,7 +106,7 @@ const SignUpPage = () => {
                 });
               }
             }}
-            type="text"
+            type="password"
             placeholder="Password"
             name="passwordInput"
           />

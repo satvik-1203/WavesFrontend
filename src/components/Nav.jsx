@@ -16,6 +16,16 @@ export default function Nav() {
               <Link to={item.path}>{item.name}</Link>
             </li>
           ))}
+          <li>
+            <div
+              onClick={() => {
+                setToggleGenre(!toggleGenre);
+              }}
+            >
+              genres
+            </div>
+            <div className="genreTab">{toggleGenre && <GenreTab />}</div>
+          </li>
         </ul>
       </div>
     </nav>

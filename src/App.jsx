@@ -4,6 +4,8 @@ import fetchGenre from "./actions/fetchGenre";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignUpPage from "./pages/SignUpPage";
+import GenreAddTab from "./components/GenreAddTab";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +19,9 @@ function App() {
       <Switch>
         <Route path="/signup">
           <SignUpPage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
         </Route>
       </Switch>
     </>
