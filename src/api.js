@@ -13,3 +13,7 @@ export const genreId = (id) => {
 export const customerApi = () => {
   return `${DEFAULT_API()}customers`;
 };
+
+export const loginApi = () => {
+  return `${DEFAULT_API()}login`;
+};

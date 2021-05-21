@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputFelid = ({ input }) => {
+const InputFelid = ({ input, handleInputChange }) => {
   return (
     <div>
       <div className={input.name}>
@@ -8,6 +8,10 @@ const InputFelid = ({ input }) => {
           {input.label} <span>*</span>
         </label>
         <input
+          value={input.value}
+          onChange={(e) => {
+            handleInputChange(input.id, { value: e.target.value });
+          }}
           type={input.type}
           name={`input${input.name}`}
           placeholder={input.label}

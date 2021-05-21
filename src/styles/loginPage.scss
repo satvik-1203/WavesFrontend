@@ -1,10 +1,6 @@
 .loginPage {
-  margin-top: -5rem;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  padding-top: 3rem;
   .email,
   .password {
     display: flex;
@@ -23,16 +19,18 @@
   span {
     color: rgb(223, 52, 52);
   }
-  .loginBtn {
-    padding: 0.5rem 1rem;
-    border: 2px solid #24d997;
-    background-color: transparent;
-    color: white;
-    font-size: 1.2rem;
-    transition: all 0.5s linear;
-    cursor: pointer;
-    &:hover {
-      background-color: #24d997;
+  .loginButtonContainer {
+    .loginBtn {
+      padding: 0.5rem 1rem;
+      border: 2px solid #24d997;
+      background-color: transparent;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.5s linear;
+      cursor: pointer;
+      &:hover {
+        background-color: #24d997;
+      }
     }
   }
 }

@@ -1,31 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+
+//components
+
 import InputFelid from "../common/InputFelid";
+
+//misc
+
 import loginInputs from "../misc/loginInputs";
 
+// Api import
+
+import { loginApi } from "../api";
+
 const LoginPageComponent = () => {
+  //state variables
+
+  const [inputFelids, setInputFelids] = useState(loginInputs);
+
+  // event handlers
+
+  const handleInputChange = (id, change) => {
+    const copyInputFelids = [...inputFelids];
+    const changedInput = copyInputFelids.find((input) => input.id === id);
+    const changedInputIndex = copyInputFelids.findIndex(
+      (input) => input.id === id
+    );
+    copyInputFelids[changedInputIndex] = { ...changedInput, ...change };
+    setInputFelids(copyInputFelids);
+  };
+
+  const postRequestLogin = async (credentials) => {
+    try {
+      const result = await axios.post(loginApi(), credentials, {
+        headers: {
+          "x-jwt-token": "x-jwt-token",
+        },
+      });
+      console.log(result.data.headers["x-jwt-token"]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="LoginContainer">
-      {loginInputs.map((input) => (
-        <InputFelid input={input} />
+      {inputFelids.map((input) => (
+        <InputFelid
+          key={input.id}
+          input={input}
+          handleInputChange={handleInputChange}
+        />
       ))}
-      <button className="loginBtn">Login</button>
+      <div className="loginButtonContainer">
+        <button
+          className="loginBtn"
+          onClick={() => {
+            const credentials = {
+              email: inputFelids[0].value,
+              password: inputFelids[1].value,
+            };
+            postRequestLogin(credentials);
+          }}
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
 };
 
 export default LoginPageComponent;
-
-{
-  /* <div className="email">
-<label htmlFor="emailInput">
-  Email <span>*</span>
-</label>
-<input type="text" name="emailInput" placeholder="Email" />
-</div>
-<div className="password">
-<label htmlFor="passwordInput">
-  Password <span>*</span>
-</label>
-<input type="password" name="passwordInput" placeholder="Password" />
-</div> */
-}
