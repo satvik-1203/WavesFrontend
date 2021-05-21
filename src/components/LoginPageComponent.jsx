@@ -32,12 +32,11 @@ const LoginPageComponent = () => {
 
   const postRequestLogin = async (credentials) => {
     try {
-      const result = await axios.post(loginApi(), credentials, {
-        headers: {
-          "x-jwt-token": "x-jwt-token",
-        },
-      });
-      console.log(result.data.headers["x-jwt-token"]);
+      const result = await axios.post(loginApi(), credentials);
+
+      // storing the token in the storage
+
+      sessionStorage.setItem("x-jwt-token", result.data["x-jwt-token"]);
     } catch (err) {
       console.log(err);
     }
@@ -61,6 +60,7 @@ const LoginPageComponent = () => {
               password: inputFelids[1].value,
             };
             postRequestLogin(credentials);
+            console.log(credentials);
           }}
         >
           Login
