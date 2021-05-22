@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+
+//actions
+
+import fetchToken from "../actions/fetchToken";
+import userData from "../actions/userData";
 
 //components
 
@@ -18,6 +24,10 @@ const LoginPageComponent = () => {
 
   const [inputFelids, setInputFelids] = useState(loginInputs);
 
+  // dispatcher
+
+  const dispatch = useDispatch();
+
   // event handlers
 
   const handleInputChange = (id, change) => {
@@ -35,8 +45,10 @@ const LoginPageComponent = () => {
       const result = await axios.post(loginApi(), credentials);
 
       // storing the token in the storage
-
-      sessionStorage.setItem("x-jwt-token", result.data["x-jwt-token"]);
+      const token = result.data["x-jwt-token"];
+      dispatch(fetchToken(token));
+      dispatch(userData(result.data.userData));
+      setInputFelids(loginInputs);
     } catch (err) {
       console.log(err);
     }
@@ -60,7 +72,6 @@ const LoginPageComponent = () => {
               password: inputFelids[1].value,
             };
             postRequestLogin(credentials);
-            console.log(credentials);
           }}
         >
           Login
